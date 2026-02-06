@@ -1,0 +1,302 @@
+.confirmation-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff6b9d 0%, #ffc371 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+
+  // Vallende hartjes
+  &::before,
+  &::after {
+    content: '💌';
+    position: absolute;
+    font-size: 3rem;
+    animation: fall 10s infinite;
+    opacity: 0.4;
+  }
+
+  &::before {
+    left: 15%;
+    animation-delay: 0s;
+  }
+
+  &::after {
+    left: 85%;
+    animation-delay: 5s;
+  }
+}
+
+@keyframes fall {
+  0% {
+    top: -10%;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 110%;
+    transform: rotate(360deg);
+  }
+}
+
+// Envelop styling
+.envelope-wrapper {
+  cursor: pointer;
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.envelope {
+  position: relative;
+  width: 400px;
+  height: 280px;
+  background: #d32f2f;
+  box-shadow: 0 20px 60px rgba(211, 47, 47, 0.4);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 70px rgba(211, 47, 47, 0.5);
+  }
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-top: 140px solid #b71c1c;
+  z-index: 2;
+  transform-origin: top center;
+  animation: flapFloat 2s ease-in-out infinite;
+}
+
+@keyframes flapFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.envelope-body {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1;
+  width: 100%;
+  padding: 20px;
+}
+
+.envelope-text {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.click-hint {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+// Brief/Kaart styling
+.letter-wrapper {
+  animation: letterSlide 1s ease-out;
+}
+
+@keyframes letterSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.8);
+  }
+  60% {
+    transform: translateY(-10px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.letter {
+  background: white;
+  max-width: 600px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  border: 5px solid #ff1744;
+  position: relative;
+
+  &::before {
+    content: '❤️';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 3rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.letter-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #ff6b9d;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #ff1744;
+    margin-bottom: 10px;
+    font-weight: 800;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
+  }
+}
+
+.reservation-details {
+  margin: 30px 0;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  margin: 10px 0;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe0e8 100%);
+  border-radius: 10px;
+
+  .label {
+    font-weight: 700;
+    color: #ff1744;
+  }
+
+  .value {
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.detail-section {
+  margin: 25px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe0e8 100%);
+  border-radius: 15px;
+  border-left: 5px solid #ff1744;
+
+  h3 {
+    font-size: 1.4rem;
+    color: #ff1744;
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: #333;
+    font-size: 1.1rem;
+  }
+}
+
+.detail-with-image {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #ff1744;
+  }
+
+  span {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.letter-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 3px solid #ff6b9d;
+
+  .love-note {
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .signature {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff1744;
+    font-family: 'Brush Script MT', cursive;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .envelope {
+    width: 300px;
+    height: 210px;
+  }
+
+  .envelope-flap {
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 105px solid #b71c1c;
+  }
+
+  .letter {
+    padding: 25px;
+  }
+
+  .letter-header h1 {
+    font-size: 2rem;
+  }
+}

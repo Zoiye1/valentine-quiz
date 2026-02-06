@@ -1,0 +1,50 @@
+<div class="quiz-container">
+  <div class="quiz-card">
+
+    <!-- Yes/No vragen -->
+    <div *ngIf="getCurrentQuestion()?.type === 'yes-no'">
+      <!-- Centraal plaatje (als image bestaat) -->
+      <img *ngIf="getCurrentQuestion()?.image"
+           [src]="getCurrentQuestion()?.image"
+           alt="Question image"
+           class="question-image">
+
+      <!-- Vraag tekst -->
+      <h2>{{ getCurrentQuestion()?.question }}</h2>
+
+      <!-- Ja knop (met of zonder plaatje) -->
+      <button (click)="nextQuestion()" class="yes-button">
+        <img *ngIf="getCurrentQuestion()?.images?.['Ja']"
+             [src]="getCurrentQuestion()?.images?.['Ja']"
+             alt="Ja">
+        Ja
+      </button>
+
+      <!-- Nee knop (met of zonder plaatje) -->
+      <button (click)="restartQuiz()" class="no-button">
+        <img *ngIf="getCurrentQuestion()?.images?.['Nee']"
+             [src]="getCurrentQuestion()?.images?.['Nee']"
+             alt="Nee">
+        Nee
+      </button>
+    </div>
+
+    <!-- Multiple choice vragen -->
+    <div *ngIf="getCurrentQuestion()?.type === 'multiple-choice'">
+      <!-- Vraag tekst -->
+      <h2>{{ getCurrentQuestion()?.question }}</h2>
+
+      <!-- Opties met plaatjes -->
+      <button
+        *ngFor="let option of getMultipleChoiceOptions()"
+        (click)="selectAnswer(option)"
+        class="option-button">
+        <img *ngIf="getCurrentQuestion()?.images?.[option]"
+             [src]="getCurrentQuestion()?.images?.[option]"
+             [alt]="option">
+        {{ option }}
+      </button>
+    </div>
+
+  </div>
+</div>

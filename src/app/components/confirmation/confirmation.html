@@ -1,0 +1,60 @@
+<div class="confirmation-container">
+  <!-- Gesloten envelop (als nog niet open) -->
+  <div class="envelope-wrapper" *ngIf="!isEnvelopeOpen" (click)="openEnvelope()">
+    <div class="envelope">
+      <div class="envelope-flap"></div>
+      <div class="envelope-body">
+        <p class="envelope-text">Voor {{ dateDetails?.name || 'jou' }}</p>
+        <p class="click-hint">Klik om te openen</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Geopende brief met reservering -->
+  <div class="letter-wrapper" *ngIf="isEnvelopeOpen">
+    <div class="letter">
+      <div class="letter-header">
+        <h1>🎫 RESERVERING 🎫</h1>
+      </div>
+
+      <div class="reservation-details">
+        <div class="detail-row">
+          <span class="label">Gereserveerd voor:</span>
+          <span class="value">{{ dateDetails?.name }}</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">📅 Datum:</span>
+          <span class="value">{{ dateDetails?.date }}</span>
+        </div>
+
+        <div class="detail-section">
+          <h3>🍽️ Menu</h3>
+          <div class="detail-with-image">
+            <img *ngIf="dateDetails?.foodImage" [src]="dateDetails?.foodImage" alt="Food">
+            <span>{{ dateDetails?.food }}</span>
+          </div>
+        </div>
+
+
+        <div class="detail-section">
+          <h3>📍 Locatie</h3>
+          <div class="detail-with-image">
+            <img *ngIf="dateDetails?.locationImage" [src]="dateDetails?.locationImage" alt="Location">
+            <span>{{ dateDetails?.location }}</span>
+          </div>
+        </div>
+
+        <div class="detail-section" *ngIf="dateDetails?.music">
+          <h3>Muziek</h3>
+          <p>Brent Faiyaz - Icon</p>
+        </div>
+      </div>
+
+      <div class="letter-footer">
+        <p class="love-note">Ik hou van jou💕,</p>
+        <p class="signature">Zoiye</p>
+      </div>
+    </div>
+  </div>
+</div>

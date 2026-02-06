@@ -1,0 +1,27 @@
+<div class="welcome-container">
+  <div class="welcome-card">
+    <h1>Welkom!</h1>
+    <p>Vul je naam in om te beginnen</p>
+
+    <div class="input-group">
+      <input
+        type="text"
+        [(ngModel)]="name"
+        (ngModelChange)="onNameChange()"
+        placeholder="Je naam..."
+        (keyup.enter)="startQuiz()"
+        class="name-input"
+        [class.error]="errorMessage"
+      />
+      <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+    </div>
+
+    <button
+      (click)="startQuiz()"
+      [disabled]="!name.trim()"
+      class="start-button"
+    >
+      Start
+    </button>
+  </div>
+</div>
