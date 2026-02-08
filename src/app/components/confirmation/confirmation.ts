@@ -9,7 +9,6 @@ interface DateDetails {
   location: string;
   locationImage: string;
   date: string;
-  music: boolean;
 }
 
 @Component({
@@ -36,13 +35,12 @@ export class ConfirmationComponent {
     const questions = this.quizService.getQuestions();
 
     // Vind specifieke antwoorden
-    const foodAnswer = this.findAnswer(answers, 3); // Question ID 3 is food
-    const locationAnswer = this.findAnswer(answers, 5); // Question ID 5 is location
-    const musicAnswer = this.findAnswer(answers, 3); // Vraag ID voor Brent Faiyaz
+    const foodAnswer = this.findAnswer(answers, 4); // Question ID 3 is food
+    const locationAnswer = this.findAnswer(answers, 6); // Question ID 5 is location
 
     // Vind de images bij de antwoorden
-    const foodQuestion = questions.find(q => q.id === 3);
-    const locationQuestion = questions.find(q => q.id === 5);
+    const foodQuestion = questions.find(q => q.id === 4);
+    const locationQuestion = questions.find(q => q.id === 6);
 
     this.dateDetails = {
       name: this.quizService.getUserName(),
@@ -51,7 +49,6 @@ export class ConfirmationComponent {
       location: locationAnswer === 'Mijn' ? 'Jouw huis' : 'Mijn huis',
       locationImage: this.getImageForAnswer(locationQuestion, locationAnswer),
       date: '14 Februari 2026',
-      music: musicAnswer === 'Ja'
     };
   }
 

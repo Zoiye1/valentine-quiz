@@ -51,9 +51,15 @@ export class Quiz {
       }
     },
 
-
     {
       id: 3,
+      question: 'Zullen we samen koken?',
+      type: 'yes-no',
+      image: 'koken.jpg',
+    },
+
+    {
+      id: 4,
       question: 'Wat voor eten zullen we samen maken?',
       type: 'multiple-choice',
       options: ['Pasta', 'Pizza', 'Sushi'],
@@ -65,14 +71,14 @@ export class Quiz {
     },
 
     {
-      id: 4,
+      id: 5,
       question: 'Samen naar nieuwe brent faiyaz album luisteren?',
       type: 'yes-no',
       image: 'icon.jpg',
     },
 
     {
-      id: 5,
+      id: 6,
       question: 'Bij welk huis?',
       type: 'multiple-choice',
       options: ['Mijn huis', 'Jouw huis'],
