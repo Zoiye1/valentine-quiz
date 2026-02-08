@@ -12,15 +12,15 @@
 // Vallende foto's met hartje frame
 .falling-photo {
   position: absolute;
-  width: 120px;  // Was 80px
-  height: 120px;  // Was 80px
+  width: 140px;
+  height: 140px;
   animation: fall 12s infinite;
   opacity: 0.8;
 
   &::before {
     content: '❤️';
     position: absolute;
-    font-size: 130px;  // Was 90px
+    font-size: 90px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -29,8 +29,8 @@
 
   img {
     position: relative;
-    width: 80px;  // Was 50px
-    height: 80px;  // Was 50px
+    width: 50px;
+    height: 50px;
     object-fit: cover;
     border-radius: 50%;
     position: absolute;
@@ -69,7 +69,31 @@
 
 .falling-photo-5 {
   left: 90%;
-  animation-delay: 8s;
+  animation-delay: 25s;
+  animation-duration: 16s;
+}
+
+.falling-photo-6 {
+  left: 25%;
+  animation-delay: 20s;
+  animation-duration: 16s;
+}
+
+.falling-photo-7 {
+  left: 35%;
+  animation-delay: 15s;
+  animation-duration: 16s;
+}
+
+.falling-photo-8 {
+  left: 40%;
+  animation-delay: 7s;
+  animation-duration: 16s;
+}
+
+.falling-photo-9 {
+  left: 70%;
+  animation-delay: 2s;
   animation-duration: 16s;
 }
 
@@ -256,4 +280,3 @@ h2 {
   }
 }
 
-// Card hover effect removed for cleaner look
