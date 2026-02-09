@@ -46,7 +46,7 @@ export class Quiz {
       question: 'Wil je mijn valentijn zijn?',
       type: 'yes-no',
       images: {
-        'Ja': 'happy.png',
+        'Ja': 'flower.jpg',
         'Nee': 'crying.png'
       }
     },
